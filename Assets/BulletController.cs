@@ -24,13 +24,13 @@ public class BulletController : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D coll)
     {
-        // 衝突したときにスコアを更新する
-        GameObject.Find("Canvas").GetComponent<UIController>().AddScore();
 
 
         //if (coll.gameObject.tag == "Rock")
         if(coll.gameObject.name == "RockPrefab(Clone)")//Instantiateで生成されるオブジェクト名を使った判定も可能
         {
+        　　// 衝突したときにスコアを更新する
+        　　GameObject.Find("Canvas").GetComponent<UIController>().AddScore();
             // 爆発エフェクトを生成する	
             GameObject effect = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
             Destroy(effect, 1.0f);
