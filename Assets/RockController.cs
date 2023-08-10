@@ -10,14 +10,14 @@ public class RockController : MonoBehaviour
 
 	void Start()
 	{
-		this.fallSpeed = 0.01f + 0.01f * Random.value * Time.fixedDeltaTime;
-		this.rotSpeed = 2.5f + 1.5f * Random.value * Time.fixedDeltaTime;
+		this.fallSpeed = 0.01f + 0.1f * Random.value;
+		this.rotSpeed = 2.5f + 1.5f * Random.value ;
 	}
 
 	void Update()
 	{
-		transform.Translate(0, -fallSpeed, 0, Space.World);
-		transform.Rotate(0, 0, rotSpeed);
+		transform.Translate(0, -fallSpeed * Time.fixedDeltaTime, 0, Space.World);
+		transform.Rotate(0, 0, rotSpeed * Time.fixedDeltaTime );
 
 		if (transform.position.y < -5.5f)
 		{
