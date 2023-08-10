@@ -17,11 +17,11 @@ public class RocketController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(-1.0f * Time.fixedDeltaTime, 0, 0);
+            transform.Translate(-1.5f * Time.deltaTime, 0, 0);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(1.0f * Time.fixedDeltaTime, 0, 0);
+            transform.Translate(1.5f * Time.deltaTime, 0, 0);
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
