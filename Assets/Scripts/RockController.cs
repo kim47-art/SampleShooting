@@ -6,6 +6,7 @@ public class RockController : MonoBehaviour
 {
 	// Start is called before the first frame update
 	public GameObject explosionPrefab;   //爆発エフェクトのPrefab
+	public GameObject powerUpItemPrefab;
 
 	float fallSpeed;
 	float rotSpeed;
@@ -33,13 +34,24 @@ public class RockController : MonoBehaviour
     public void HittedBullet()
     {
 		this.durability -= 1;
-		print(this.durability);
+		//print(this.durability);
 		if (this.durability <= 0)//耐久値が0以下になったら消滅させる。
-		{          // 衝突したときにスコアを更新する
+		{   // 衝突したときにスコアを更新する
 			GameObject.Find("Canvas").GetComponent<UIController>().AddScore();
 			// 爆発エフェクトを生成する	
 			GameObject effect = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
 			Destroy(effect, 1.0f);
+
+            //ランダムでパワーアップアイテムを生成する
+            if (Random.value>=0.9)
+            {
+				Instantiate(powerUpItemPrefab,
+							new Vector3(	this.transform.position.x,
+											this.transform.position.y,
+											0),
+							Quaternion.identity);
+            }
+			
 			Destroy(gameObject);
 		}
     }

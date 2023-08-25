@@ -27,8 +27,8 @@ public class BulletController : MonoBehaviour
     {
 
 
-        //if (coll.gameObject.tag == "Rock")
-        if(coll.gameObject.name == "RockPrefab(Clone)")//Instantiateで生成されるオブジェクト名を使った判定も可能
+        if (coll.gameObject.tag == "Rock")
+        //if(coll.gameObject.name == "RockPrefab(Clone)")//Instantiateで生成されるオブジェクト名を使った判定も可能
         {
             // 自身を消滅させる。
             Destroy(gameObject);
